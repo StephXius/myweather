@@ -2,10 +2,7 @@ $(document).ready(function() {
 
 
     function MyWeatherURLWithSearchTerm(searchTerm) {
-        var url = "https://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=3a06d15c961ffb4960611fa7a77d78af";
-        var zipcode = "https://api.openweathermap.org/data/2.5/weather?zip=" + searchTerm + ",us"
-
-        ;
+        var url = "https://api.openweathermap.org/data/2.5/weather?q=" + searchTerm + "&appid=3a06d15c961ffb4960611fa7a77d78af";
         return url;
 
     }
@@ -21,11 +18,13 @@ $(document).ready(function() {
             url: url,
             method: "GET",
             success: function(response) {
-                var weather_url = response.city.name;
+               
+                var weather_url = response.weather.main;
+                var weather_url = response.main.temp;
                 console.log(weather_url);
                 appendWeatherToBody(weather_url)
-
-                console.log(response)
+                console.log(response);
+                
             },
 
         });
