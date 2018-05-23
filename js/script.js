@@ -21,12 +21,12 @@ $(document).ready(function() {
                
                 var tempature = response.main.temp;
                     console.log(tempature);
-                    appendWeatherToBody(tempature)
+                    appendWeatherToBody('<p>' + 'Tempature' + '</p>' + tempature)
                     console.log(response);
                 
                 var humidity = response.main.humidity;
                     console.log(humidity);
-                    appendWeatherToBody(humidity)
+                    appendWeatherToBody('<p>' + 'Humidity' + '</p>' + humidity)
                     console.log(response);
                     
                 var main = response.weather[0].main;    
@@ -45,7 +45,7 @@ $(document).ready(function() {
         });
     }
 
-    $('button').click(function() {
+    $('#button1').click(function() {
         var searchTerm = $('#srch-term').val();
         console.log(searchTerm);
         callMyWeatherURLWithSearchTerm(searchTerm);
