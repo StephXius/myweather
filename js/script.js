@@ -51,6 +51,9 @@ $(document).ready(function() {
         callMyWeatherURLWithSearchTerm(searchTerm);
 
     });
+    
+   
+        
 
 
 
