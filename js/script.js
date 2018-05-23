@@ -8,7 +8,7 @@ $(document).ready(function() {
     }
 
     function appendWeatherToBody(srcURL) {
-        $('body').append('<p>' + srcURL + '</p>');
+        $('body').append('<center> <p>' + srcURL + '</p> </center>');
     }
 
     function callMyWeatherURLWithSearchTerm(searchTerm) {
@@ -19,12 +19,27 @@ $(document).ready(function() {
             method: "GET",
             success: function(response) {
                
-                var weather_url = response.weather.main;
-                var weather_url = response.main.temp;
-                console.log(weather_url);
-                appendWeatherToBody(weather_url)
-                console.log(response);
+                var tempature = response.main.temp;
+                    console.log(tempature);
+                    appendWeatherToBody(tempature)
+                    console.log(response);
                 
+                var humidity = response.main.humidity;
+                    console.log(humidity);
+                    appendWeatherToBody(humidity)
+                    console.log(response);
+                    
+                var main = response.weather[0].main;    
+                    console.log(main);
+                    appendWeatherToBody(main)
+                    console.log(response);
+                    
+                var description = response.weather[0].description;
+                    console.log(description);
+                    appendWeatherToBody(description)
+                    console.log(response);
+                    
+              
             },
 
         });
